@@ -1,7 +1,7 @@
 {
   "name": "@coms-portal/ui",
-  "version": "0.1.0",
-  "description": "COMS UI components — primitives, chrome shells, and generic compositions for the COMS suite.",
+  "version": "1.0.0",
+  "description": "COMS UI components — chrome shells (ServiceBar, Sidebar, MobileTopBar, MobileBottomNav). Primitives and compositions are reserved for future phases.",
   "type": "module",
   "license": "UNLICENSED",
   "repository": {
@@ -20,15 +20,14 @@
     "README.md"
   ],
   "scripts": {
-    "build": "echo 'TODO: svelte-package or equivalent'",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "svelte-check --tsconfig ./tsconfig.json"
   },
   "peerDependencies": {
-    "svelte": "^5.0.0",
-    "@coms-portal/design-tokens": "*"
+    "svelte": "^5.0.0"
   },
   "devDependencies": {
     "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
     "typescript": "^5.5.0"
   }
 }
