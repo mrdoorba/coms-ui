@@ -93,6 +93,26 @@ The chrome ships a presentational theme toggle (sun/moon glyph). The host owns t
 
 Chrome components use Tailwind utility classes that resolve through `@coms-portal/design-tokens`. The consuming app must `@import "@coms-portal/design-tokens/css"` in its Tailwind v4 entry point so utilities like `bg-card`, `text-foreground`, `bg-deep-navy`, etc. resolve correctly.
 
+### Tailwind setup — required
+
+Tailwind v4 excludes `node_modules` from auto-discovery, so the chrome components' class strings (`md:hidden`, `hidden md:flex`, `md:ml-[var(--sidebar-width)]`, etc.) are invisible to the host's compile step unless the host opts them back in. **Symptom when this is missing:** the desktop sidebar and the mobile top bar + bottom nav all render simultaneously on every viewport.
+
+This package ships an `@source` directive that opts every component in the package back into the scanner. Import it once in your Tailwind v4 entry point:
+
+```css
+/* apps/web/src/app.css */
+@import "tailwindcss";
+@import "@coms-portal/ui/styles.css";
+@import "@coms-portal/account-widget/styles.css";
+@import "@coms-portal/design-tokens/css";
+```
+
+Order matters: `@import "tailwindcss"` must come first; the `styles.css` files must come before any `@theme` / `@source` of your own (they are CSS imports and must precede normal rules per the CSS spec).
+
+You do **not** need to know where this package lives in `node_modules`. The `@source` paths inside `styles.css` are resolved relative to the file itself, so the host's Tailwind plugin scans this package no matter how it is installed (workspace, `file:` link, or `git+url`).
+
+If you add new components in this repo, no rebuild is needed — `styles.css` uses a glob (`./**/*.svelte`). Just commit the new component file and consumers pick it up on their next install / dev-server restart.
+
 ## Development
 
 ```sh

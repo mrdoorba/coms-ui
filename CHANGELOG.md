@@ -16,7 +16,7 @@ Format: each entry lists the doc revision and any package version that ships alo
 
 ### Packages
 - `@coms-portal/design-tokens@0.0.0` — package skeleton; not yet published.
-- `@coms-portal/ui@0.0.0` — package skeleton; not yet published.
+- `@coms-portal/ui@1.1.0` — adds `./styles.css` export. Hosts must `@import "@coms-portal/ui/styles.css"` in their Tailwind v4 entry point so `node_modules` chrome class strings (`md:hidden`, `hidden md:flex`, `md:ml-[var(--sidebar-width)]`, etc.) are scanned. Without this, the desktop sidebar and mobile chrome render simultaneously on every viewport. No code change to the components themselves — purely the source-registration contract. See README "Tailwind setup — required".
 - `@coms-portal/account-widget@0.0.0` — package skeleton; defined in Rev 3 Spec 01.
 
 ### Migration notes
