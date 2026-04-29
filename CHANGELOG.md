@@ -8,6 +8,34 @@ Format: each entry lists the doc revision and any package version that ships alo
 
 ## Unreleased
 
+---
+
+## v1.2.0 — 2026-04-29
+
+### Packages
+- `@coms-portal/ui@1.2.0` — primitives lift. 15 shadcn-svelte v3 primitive families lifted verbatim from `@coms/web` (Heroes) into `src/primitives/`. Import paths rewritten from `$lib/utils.js` → `../../utils.js` and `$lib/components/ui/<family>/index.js` → `../<family>/index.js`. Generic short-name exports (Root, Content, Header…) are flattened out of the public barrel to avoid cross-family name collisions; only fully-qualified aliases (Button, CardContent, DialogContent, etc.) are re-exported. New `src/utils.ts` ships `cn()` + four type helpers (WithoutChildren, WithoutChild, WithoutChildrenOrChild, WithElementRef). New direct deps: `bits-ui ^2.16.3`, `clsx ^2.1.1`, `lucide-svelte ^0.460.0`, `tailwind-merge ^3.5.0`, `tailwind-variants ^3.2.2`. Compositions remain stub — Heroes' compositions are dashboard-specific (brand gradients, gold/silver/bronze scales) and are not generic primitives. `ONBOARDING.md` Step 4 import example corrected: `StatusBadge` → `Badge`.
+
+Families shipped:
+- `Avatar` (Root, Image, Fallback, Badge, Group, GroupCount)
+- `Badge` (Badge, badgeVariants)
+- `Button` (Button, buttonVariants, ButtonProps, ButtonSize, ButtonVariant)
+- `Card` (Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, CardAction)
+- `Dialog` (Dialog + 9 sub-components)
+- `DropdownMenu` (DropdownMenu + 16 sub-components)
+- `Input`
+- `Label`
+- `Select` (Select + 10 sub-components)
+- `Separator`
+- `Sheet` (Sheet + 9 sub-components)
+- `Skeleton`
+- `Table` (Table + 7 sub-components)
+- `Tabs` (Tabs, TabsContent, TabsList, TabsTrigger, tabsListVariants)
+- `Textarea`
+
+---
+
+## v1.1.0 (historical)
+
 ### Docs
 - Initial extraction from `coms_aha_heroes/my-design-guideline/DESIGN.md` into `coms_portal/docs/design-system/` as the canonical source.
 - Added `ONBOARDING.md` (integration playbook) and `CHANGELOG.md` (this file).

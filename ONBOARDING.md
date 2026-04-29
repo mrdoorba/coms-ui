@@ -148,13 +148,13 @@ In your app's pages and components, import primitives from `@coms-portal/ui/prim
 
 ```svelte
 <script lang="ts">
-  import { Button, Card, StatusBadge, Avatar } from '@coms-portal/ui/primitives'
+  import { Button, Card, Badge, Avatar } from '@coms-portal/ui/primitives'
 </script>
 
 <Card>
   <Avatar size="md" name="Alice" />
   <Button variant="blue" onclick={submit}>Submit</Button>
-  <StatusBadge status="approved" />
+  <Badge variant="outline">approved</Badge>
 </Card>
 ```
 

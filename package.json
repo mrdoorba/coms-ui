@@ -1,7 +1,7 @@
 {
   "name": "@coms-portal/ui",
-  "version": "1.1.0",
-  "description": "COMS UI components — chrome shells (ServiceBar, Sidebar, MobileTopBar, MobileBottomNav). Primitives and compositions are reserved for future phases.",
+  "version": "1.2.0",
+  "description": "COMS UI components — chrome shells (ServiceBar, Sidebar, MobileTopBar, MobileBottomNav) + shadcn-style primitives (Button, Card, Dialog, DropdownMenu, Select, Sheet, Tabs, Avatar, Badge, Input, Label, Table, Textarea, Separator, Skeleton). Compositions reserved for a future shared candidate.",
   "type": "module",
   "license": "UNLICENSED",
   "repository": {
@@ -22,6 +22,13 @@
   ],
   "scripts": {
     "typecheck": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "bits-ui": "^2.16.3",
+    "clsx": "^2.1.1",
+    "lucide-svelte": "^0.460.0",
+    "tailwind-merge": "^3.5.0",
+    "tailwind-variants": "^3.2.2"
   },
   "peerDependencies": {
     "svelte": "^5.0.0"
