@@ -160,6 +160,24 @@ In your app's pages and components, import primitives from `@coms-portal/ui/prim
 
 Page layouts, routes, business logic, and domain components (your equivalent of Heroes' Leaderboard, etc.) live entirely in your app — the design system does not constrain those.
 
+### Step 4a — Select: displaying the current value
+
+`Select` (and `SelectTrigger`) does not ship a `SelectValue` component. To display the current selection inside the trigger, render any markup (typically a `<span>`) as the trigger's child — Svelte's snippet shape carries through. Pattern:
+
+```svelte
+<Select type="single" value={form.role} onValueChange={(v) => form.role = v}>
+  <SelectTrigger>
+    <span>{form.role || 'Pick a role'}</span>
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="admin">Admin</SelectItem>
+    <SelectItem value="member">Member</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+This is consistent with Heroes' `select/index.ts` — `SelectValue` is intentionally absent from the export surface. The `<span>` (or any element) inside `<SelectTrigger>` is the display value.
+
 ---
 
 ## Step 5 — Verify

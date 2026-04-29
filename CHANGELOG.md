@@ -8,6 +8,8 @@ Format: each entry lists the doc revision and any package version that ships alo
 
 ## Unreleased
 
+- ONBOARDING.md — document the canonical Select-display pattern (`<span>` content inside `<SelectTrigger>`); `SelectValue` is intentionally not exported, mirroring Heroes' source.
+
 ---
 
 ## v1.2.0 — 2026-04-29
